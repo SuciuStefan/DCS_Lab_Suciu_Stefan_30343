@@ -1,0 +1,48 @@
+package lab.scd.net.socket;
+import java.net.*;
+import java.io.*;
+
+public class ClientSimplu {
+
+  public static void main(String[] args)throws Exception{
+    Socket socket=null;
+    try {
+      //creating an address object that identifies the server address
+      InetAddress server_address =InetAddress.getByName("localhost");
+      //The alternative variant could be used: InetAddress.getByName("127.0.0.1")
+      
+      socket = new Socket(server_address,1900);
+
+      //Build the input stream through which data is received from the server.
+      BufferedReader in =
+        new BufferedReader(
+          new InputStreamReader(
+            socket.getInputStream()));
+      
+      //construct the output stream through which data is sent to the server
+      // Output is automatically flushed
+      // by PrintWriter:
+      PrintWriter out =
+        new PrintWriter(
+          new BufferedWriter(
+            new OutputStreamWriter(
+              socket.getOutputStream())),true);
+
+      
+      for(int i = 0; i < 10; i ++) {
+        out.println("mesaj " + i);
+        out.flush();
+        
+        String str = in.readLine(); //send message
+        System.out.println(str); //waiting for a reply
+      }
+      out.println("END"); //send a message that causes the server to close the connection
+
+    }
+    catch (Exception ex) {ex.printStackTrace();}
+    finally{
+      socket.close();
+    }
+  }
+}
+
