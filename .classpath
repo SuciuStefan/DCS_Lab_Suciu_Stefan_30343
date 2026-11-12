@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="Lab2/Labnet/src"/>
+	<classpathentry excluding="All_Petri_Nets_Framework-main/|All_Petri_Nets_Framework-main/" kind="src" path="Laboratoare/Labnet/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/stefa/Desktop/Facultate/Anul 4/SEM1/DCS/Lab/Laboratoare/Labnet/src/jfreechart-1.5.5.jar"/>
 	<classpathentry kind="output" path="Lab1/Labnet/bin"/>
 </classpath>
